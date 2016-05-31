@@ -1,0 +1,6 @@
+.idea
+venv/
+node_modules/
+media/
+static/css/compiled/
+db.sqlite3

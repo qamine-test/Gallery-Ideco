@@ -1,0 +1,35 @@
+{
+  "private": true,
+  "contributors": [
+    {
+      "name": "Savi",
+      "email": "savichev95@gmail.com"
+    }
+  ],
+  "scripts": {
+    "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress static/css --out static/css/compiled",
+    "build-dev": "stylus --use poststylus --with '[`autoprefixer`]' static/css --out static/css/compiled",
+    "lint": "npm-run-all lint:*",
+    "lint:js": "eslint --fix .",
+    "lint:css": "stylelint **/*.styl",
+    "lint:python": "prospector",
+    "prepush": "python manage.py test & prospector & npm run lint",
+    "tests": "python manage.py test",
+    "watch": "stylus --use poststylus --with '[`autoprefixer`]' --watch static/css --out static/css/compiled"
+  },
+  "dependencies": {
+    "autoprefixer": "6.3.6",
+    "npm-run-all": "2.1.1",
+    "poststylus": "0.2.3",
+    "stylus": "0.54.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "6.3.6",
+    "eslint": "2.11.1",
+    "husky": "0.11.4",
+    "poststylus": "0.2.3",
+    "stylelint": "6.5.1",
+    "stylelint-config-standard": "8.0.0",
+    "stylus": "0.54.5"
+  }
+}

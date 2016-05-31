@@ -1,0 +1,14 @@
+strictness: veryhigh
+test-warnings: true
+doc-warnings: false
+
+pep8:
+    full: true
+    options:
+        max-line-length: 79
+
+uses:
+  - django
+
+ignore-paths:
+  - migrations

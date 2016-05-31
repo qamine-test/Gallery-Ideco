@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% load thumbnail %}
+
+{% block extend_styles %}
+    <link type="text/css" rel="stylesheet" href="{% static 'css/compiled/gallery.css' %}" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lightgallery.min.css" />
+    <link type="text/css" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/css/lg-transitions.min.css" />
+{% endblock %}
+
+{% block title %}
+    Галерея
+{% endblock %}
+
+{% block content %}
+    <section class="container">
+	    <div id="js-gallery" class="gallery row">
+            <div class="col-sm-8">
+                {% for image in images %}
+                    <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
+                        {% thumbnail image.url "150x100" crop="center" as thumb %}
+                            <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
+                        {% empty %}
+                            <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
+                        {% endthumbnail %}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-sm-4 tags">
+                Тэги =)
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{% block extend_JS %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.13/jquery.mousewheel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lightgallery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-thumbnail.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-zoom.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-fullscreen.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-hash.min.js"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-pager.min.js"></script>#}
+    <script src="{% static 'js/gallery.js' %}"></script>
+{% endblock %}
