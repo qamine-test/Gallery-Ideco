@@ -1,7 +1,14 @@
 .idea
-*.pyc
+
+# Python
 venv/
+*.pyc
+
+# Node
 node_modules/
+npm-debug.log
+
+# Django
 media/
 static/css/compiled/
 db.sqlite3
