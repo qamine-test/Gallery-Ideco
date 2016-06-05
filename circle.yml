@@ -15,5 +15,4 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:gallery-ideco.git $CIRCLE_SHA1:master
-      - heroku run --app gallery-ideco chmod +x deploy.sh
       - heroku run --app gallery-ideco ./deploy.sh
