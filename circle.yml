@@ -11,3 +11,4 @@ test:
     - npm run prospector
     - npm run lint
     - npm run tests
+    - npm run deploy
