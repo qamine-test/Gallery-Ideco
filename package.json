@@ -8,7 +8,7 @@
     }
   ],
   "scripts": {
-    "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress static/css --out static/css/compiled",
+    "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress static/css --out DATA/css/compiled",
     "build-dev": "stylus static/css --out static/css/compiled",
     "deploy": "git push heroku master",
     "lint": "npm-run-all lint:*",
