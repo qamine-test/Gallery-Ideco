@@ -27,7 +27,7 @@ gulp.task('uglifyJS-dev', function () {
 
 gulp.task('uglifyJS', function () {
     gulp.src('./static/js/*.js')
-        .pipe(uglifyJS())
+        .pipe(uglify())
         .pipe(gulp.dest('./DATA/js/compiled'));
 });
 
