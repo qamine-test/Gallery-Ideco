@@ -21,11 +21,17 @@ from django.contrib import admin
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^', include('gallery.urls'))
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) \
-  + patterns('',
+] + patterns('',
         (
             r'^static/(?P<path>.*)$',
             'django.views.static.serve',
             {'document_root': settings.STATIC_ROOT}
         ),
-    )
+    ) \
+  + patterns('',
+        (
+            r'^media/(?P<path>.*)$',
+            'django.views.static.serve',
+            {'document_root': settings.MEDIA_ROOT}
+        )
+     )
