@@ -10,6 +10,7 @@
   "scripts": {
     "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress DATA/css --out DATA/css/",
     "build-dev": "stylus static/css --out static/css/",
+    "deploy": "git push heroku master",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint **/*.styl",
