@@ -8,14 +8,14 @@
   ],
   "scripts": {
     "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress static/css --out static/css/compiled",
-    "build-dev": "stylus --use poststylus --with '[`autoprefixer`]' static/css --out static/css/compiled",
+    "build-dev": "stylus static/css --out static/css/compiled",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint **/*.styl",
-    "lint:python": "prospector --zero-exit",
-    "prepush": "prospector --zero-exit && npm run tests",
+    "prospector": "prospector --zero-exit",
+    "prepush": "npm run lint && npm run tests",
     "tests": "python manage.py test",
-    "watch": "stylus --use poststylus --with '[`autoprefixer`]' --watch static/css --out static/css/compiled"
+    "watch": "stylus --watch static/css --out static/css/compiled"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",

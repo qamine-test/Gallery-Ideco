@@ -14,24 +14,58 @@
 {% endblock %}
 
 {% block content %}
-    <section class="container">
-	    <div id="js-gallery" class="gallery row">
-            <div class="col-sm-8">
-                {% for image in images %}
-                    <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
-                        {% thumbnail image.url "150x100" crop="center" as thumb %}
-                            <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
-                        {% empty %}
-                            <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
-                        {% endthumbnail %}
+    <div class="container">
+	    <div id="js-gallery" class="row gallery">
+            <section class="col-sm-8">
+                <div class="js-gallery-images">
+                    {% for image in images %}
+                        <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
+                            {% thumbnail image.url "250x150" crop="center" as thumb %}
+                                <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
+                            {% empty %}
+                                <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
+                            {% endthumbnail %}
+                            <div class="gallery-tags js-gallery-tags">
+                                {% for tag in image.tags.all %}
+                                    <button type="button" class="btn btn-primary gallery-tag js-gallery-tag">{{ tag }}</button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <img src="{% static 'images/loading.gif' %}" class="load-gif" style="display: none">
+            </section>
+            <section class="col-sm-4">
+                <div class="tags">
+                    <div class="tags-options">
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tag-option" value="strict" checked>
+                                Точное совпадение тэгов
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tag-option" value="not-strict">
+                                Хотя бы один тэг совпал
+                             </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="tag-option" value="hard-option">
+                                Хотя бы <input type="number" class="js-hard-option-num" value="2" min="2"> тэг(а/ов) совпал(о)
+                            </label>
+                        </div>
                     </div>
-                {% endfor %}
-            </div>
-            <div class="col-sm-4 tags">
-                Тэги =)
-            </div>
+                    <div class="js-tags">
+                        {% for tag in tags %}
+                            <button type="button" class="btn btn-primary js-tag">{{ tag }}</button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
         </div>
-    </section>
+    </div>
 {% endblock %}
 
 {% block extend_JS %}
@@ -40,7 +74,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-thumbnail.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-zoom.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-fullscreen.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-hash.min.js"></script>
+{#    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-hash.min.js"></script>#}
 {#    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightgallery/1.2.19/js/lg-pager.min.js"></script>#}
     <script src="{% static 'js/gallery.js' %}"></script>
 {% endblock %}

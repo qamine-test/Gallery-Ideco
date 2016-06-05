@@ -1,11 +1,15 @@
 from django.contrib import admin
 
-from gallery.models import Image
+from gallery.models import Image, Tag
 
 
 @admin.register(Image)
 class GalleryAdmin(admin.ModelAdmin):
-    list_display = ['tags']
+    list_display = ['name', 'get_tags', 'image_tag']
+    fields = ['name', 'tags', 'url', 'image_tag']
+    readonly_fields = ['image_tag']
 
-    def img(self):  # Для картинки в админке на будущее
-        pass
+
+@admin.register(Tag)
+class GalleryTag(admin.ModelAdmin):
+    list_display = ['name']

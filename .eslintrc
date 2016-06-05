@@ -7,13 +7,14 @@
     "jquery" : true
   },
   "extends": "eslint:recommended",
-   "rules": {
-     "camelcase": 2,
-     "indent": [2, 4],
-     "linebreak-style": [1, "unix"],
-     "max-len": [2, 100],
-     "max-params": [2, 3],
-     "quotes": [2, "double"],
-     "semi": 2
-    }
+  "rules": {
+    "camelcase": 2,
+    "strict": [2, "global"],
+    "indent": [2, 4, {"SwitchCase": 1}],
+    "linebreak-style": [1, "unix"],
+    "max-len": [2, 100],
+    "max-params": [2, 3],
+    "quotes": [2, "single"],
+    "semi": 2
+  }
 }

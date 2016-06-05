@@ -8,5 +8,6 @@ test:
   override:
     - pip install -r requirements.txt
     - npm install
+    - npm run prospector
     - npm run lint
     - npm run tests
