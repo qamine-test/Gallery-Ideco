@@ -37,14 +37,14 @@ def create_images():
     tags = Tag.objects.all()
 
     shutil.copytree(
-        os.path.join(BASE_DIR, 'images'),
+        os.path.join(BASE_DIR, 'db_images'),
         os.path.join(BASE_DIR, 'media/images')
     )
 
-    for file in os.listdir(os.path.join(BASE_DIR, 'images')):
+    for file in os.listdir(os.path.join(BASE_DIR, 'db_images')):
         new_image = Image.objects.create(
             name=counter,
-            url=os.path.join('images', file)
+            url=os.path.join('db_images', file)
         )
 
         for i in range(4):  # NOQA
