@@ -1,1 +1,1 @@
-web: gunicorn GalleryIdeco.wsgi --log-file -
+web: python deploy.py && gunicorn GalleryIdeco.wsgi --log-file -
