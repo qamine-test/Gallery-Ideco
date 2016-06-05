@@ -8,27 +8,33 @@
     }
   ],
   "scripts": {
-    "build": "stylus --use poststylus --with '[`autoprefixer`]' --compress DATA/css --out DATA/css/",
-    "build-dev": "stylus static/css --out static/css/",
+    "build": "gulp",
+    "build-dev": "gulp build-dev",
     "lint": "npm-run-all lint:*",
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint **/*.styl",
     "prospector": "prospector --zero-exit",
     "prepush": "npm run lint",
     "tests": "python manage.py test",
-    "watch": "stylus --watch static/css --out static/css/"
+    "watch": "gulp watch"
   },
   "dependencies": {
     "autoprefixer": "6.3.6",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-stylus": "2.4.0",
+    "gulp-uglifyjs": "0.6.2",
     "npm-run-all": "2.1.1",
-    "poststylus": "0.2.3",
     "stylus": "0.54.5"
   },
   "devDependencies": {
     "autoprefixer": "6.3.6",
     "eslint": "2.11.1",
+    "gulp": "3.9.1",
+    "gulp-autoprefixer": "3.1.0",
+    "gulp-stylus": "2.4.0",
+    "gulp-uglifyjs": "0.6.2",
     "husky": "0.11.4",
-    "poststylus": "0.2.3",
     "stylelint": "6.5.1",
     "stylelint-config-standard": "8.0.0",
     "stylus": "0.54.5"

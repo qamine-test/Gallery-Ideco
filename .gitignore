@@ -14,5 +14,6 @@ npm-debug.log
 
 # Django
 media/
-static/css/*.css
+static/css/compiled/*.css
+static/js/compiled/*.js
 db.sqlite3
