@@ -4,6 +4,9 @@
 Django==1.9.6
 django-cleanup==0.4.2
 
+# Debug
+django-debug-toolbar==1.4
+
 # Image
 Pillow==3.2.0
 sorl-thumbnail==12.3
