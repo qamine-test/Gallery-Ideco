@@ -13,11 +13,9 @@ test:
 deployment:
   staging:
     branch: master
-    heroku:
-      appname: gallery-ideco
-  post:
     commands:
-      - heroku run npm run build
-      - heroku run python manage.py makemigrations thumbnail
-      - heroku run python manage.py migrate
-      - heroku run python init_db.py
+      - git push heroku master
+      - heroku run --app gallery-ideco npm run build
+      - heroku run --app gallery-ideco python manage.py makemigrations thumbnail
+      - heroku run --app gallery-ideco python manage.py migrate
+      - heroku run --app gallery-ideco python init_db.py
