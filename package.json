@@ -13,7 +13,7 @@
     "lint:js": "eslint --fix .",
     "lint:css": "stylelint **/*.styl",
     "prospector": "prospector --zero-exit",
-    "prepush": "npm run lint && npm run tests",
+    "prepush": "npm run lint",
     "tests": "python manage.py test",
     "watch": "stylus --watch static/css --out static/css/compiled"
   },
