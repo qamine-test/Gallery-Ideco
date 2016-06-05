@@ -15,7 +15,4 @@ deployment:
     branch: master
     commands:
       - git push git@heroku.com:gallery-ideco.git $CIRCLE_SHA1:master
-      - heroku run --app gallery-ideco npm run build
-      - heroku run --app gallery-ideco python manage.py makemigrations thumbnail
-      - heroku run --app gallery-ideco python manage.py migrate
-      - heroku run --app gallery-ideco python init_db.py
+      - heroku run --app gallery-ideco ./deploy.sh
