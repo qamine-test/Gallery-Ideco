@@ -1,1 +1,1 @@
-web: python manage.py migrate && npm run build && gunicorn GalleryIdeco.wsgi --log-file -
+web: npm run build && python manage.py migrate && python init_db.py && gunicorn GalleryIdeco.wsgi --log-file -
