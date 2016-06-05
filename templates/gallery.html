@@ -16,26 +16,7 @@
 {% block content %}
     <div class="container">
 	    <div id="js-gallery" class="row gallery">
-            <section class="col-sm-8">
-                <div class="js-gallery-images">
-                    {% for image in images %}
-                        <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
-                            {% thumbnail image.url "250x150" crop="center" as thumb %}
-                                <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
-                            {% empty %}
-                                <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
-                            {% endthumbnail %}
-                            <div class="gallery-tags js-gallery-tags">
-                                {% for tag in image.tags.all %}
-                                    <button type="button" class="btn btn-primary gallery-tag js-gallery-tag">{{ tag }}</button>
-                                {% endfor %}
-                            </div>
-                        </div>
-                    {% endfor %}
-                </div>
-                <img src="{% static 'images/loading.gif' %}" class="load-gif" style="display: none">
-            </section>
-            <section class="col-sm-4">
+            <section class="col-sm-4 col-sm-push-8">
                 <div class="tags">
                     <div class="tags-options">
                         <div class="radio">
@@ -63,6 +44,44 @@
                         {% endfor %}
                     </div>
                 </div>
+            </section>
+            <section class="col-sm-8 col-sm-pull-4">
+                <div class="js-gallery-images">
+                    {% for image in images %}
+                        <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
+                            {% thumbnail image.url "250x150" crop="center" as thumb %}
+                                <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
+                            {% empty %}
+                                <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
+                            {% endthumbnail %}
+                            <div class="gallery-tags js-gallery-tags">
+                                {% for tag in image.tags.all %}
+                                    <button type="button" class="btn btn-primary gallery-tag js-gallery-tag">{{ tag }}</button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <img src="{% static 'images/loading.gif' %}" class="load-gif" style="display: none">
+            </section>
+            <section class="col-sm-8">
+                <div class="js-gallery-images">
+                    {% for image in images %}
+                        <div data-src="{{ MEDIA_URL }}{{ image.url }}" class="gallery-image js-gallery-image">
+                            {% thumbnail image.url "250x150" crop="center" as thumb %}
+                                <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
+                            {% empty %}
+                                <img src="{% static 'images/no_preview.png' %}" class="img-responsive img-thumbnail">
+                            {% endthumbnail %}
+                            <div class="gallery-tags js-gallery-tags">
+                                {% for tag in image.tags.all %}
+                                    <button type="button" class="btn btn-primary gallery-tag js-gallery-tag">{{ tag }}</button>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <img src="{% static 'images/loading.gif' %}" class="load-gif" style="display: none">
             </section>
         </div>
     </div>
