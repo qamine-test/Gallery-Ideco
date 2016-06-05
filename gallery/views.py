@@ -25,7 +25,7 @@ TEMPLATE_IMAGE = """
 
 def gallery_page(request):
     images = Image.objects.all()[0:8]
-    tags = [el for el in Tag.objects.all()]
+    tags = Tag.objects.all()
 
     return render(request, 'gallery.html', {'images': images, 'tags': tags})
 
