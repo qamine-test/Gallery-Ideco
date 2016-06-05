@@ -13,6 +13,5 @@ test:
 deployment:
   production:
     branch: master
-    commands:
-      - git push git@heroku.com:gallery-ideco.git $CIRCLE_SHA1:master
-      - heroku run --app gallery-ideco python deploy.py
+    heroku:
+      appname: gallery-ideco
