@@ -8,6 +8,7 @@
   },
   "ignoreFiles": [
     "venv/*",
-    "static/css/compiled/*"
+    "static/css/compiled/*",
+    "DATA/*"
   ]
 }
