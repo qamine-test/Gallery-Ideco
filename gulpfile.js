@@ -3,7 +3,7 @@
 var gulp = require('gulp');  // eslint-disable-line
 var stylus = require('gulp-stylus');  // eslint-disable-line
 var autoprefixer = require('gulp-autoprefixer'); // eslint-disable-line
-var uglifyJS = require('gulp-uglifyjs');  // eslint-disable-line
+var uglify = require('gulp-uglify');  // eslint-disable-line
 
 gulp.task('stylus-dev', function () {
     return gulp.src('./static/css/*.styl')
@@ -21,7 +21,7 @@ gulp.task('stylus', function () {
 
 gulp.task('uglifyJS-dev', function () {
     gulp.src('./static/js/*.js')
-        .pipe(uglifyJS())
+        .pipe(uglify())
         .pipe(gulp.dest('./static/js/compiled'));
 });
 
@@ -36,6 +36,6 @@ gulp.task('watch', function () {
     gulp.watch('./static/js/*.js', ['uglifyJS-dev']);
 });
 
-gulp.task('default', ['stylus', 'uglifyJS']);
-
 gulp.task('build-dev', ['stylus-dev', 'uglifyJS-dev']);
+
+gulp.task('default', ['stylus', 'uglifyJS']);
