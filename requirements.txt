@@ -10,3 +10,6 @@ sorl-thumbnail==12.3
 
 # Code style
 prospector==0.11.7
+
+# Deploy
+gunicorn==19.6.0
