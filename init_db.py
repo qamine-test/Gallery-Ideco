@@ -44,7 +44,7 @@ def create_images():
     for file in os.listdir(os.path.join(BASE_DIR, 'db_images')):
         new_image = Image.objects.create(
             name=counter,
-            url=os.path.join('db_images', file)
+            url=os.path.join('images', file)
         )
 
         for i in range(4):  # NOQA
