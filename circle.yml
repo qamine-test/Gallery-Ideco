@@ -13,12 +13,6 @@ test:
 deployment:
   production:
     branch: master
-    heroku:
-      appname: gallery-ideco
-
-deployment-extended:
-  production:
-    branch: master
     commands:
       - git push git@heroku.com:gallery-ideco.git $CIRCLE_SHA1:master
       - heroku run npm run build
