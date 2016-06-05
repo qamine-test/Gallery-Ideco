@@ -130,7 +130,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'DATA')  # Статика локально
+STATIC_ROOT = os.path.join(BASE_DIR, 'DATA')  # local staticfiles
 
 MEDIA_URL = '/media/'
 
