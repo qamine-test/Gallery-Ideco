@@ -1,5 +1,7 @@
 from django.test import TestCase, Client
-from gallery.models import Image
+from django.utils.crypto import get_random_string
+
+from gallery.models import Image, Tag
 
 
 class GalleryTestCase(TestCase):
@@ -7,10 +9,17 @@ class GalleryTestCase(TestCase):
     def setUp(self):
         self.client = Client()
 
-    def test_model(self):
-        image = Image.objects.create(url='image_url', tags='#image')
+    def test_image_model(self):
+        name = get_random_string()
+        image = Image.objects.create(name=name, url='image_url')
+        self.assertEqual(image.name, name)
         self.assertEqual(image.url, 'image_url')
-        self.assertEqual(image.tags, '#image')
+        self.assertFalse(image.tags.all())
+
+    def test_tag_model(self):
+        name = get_random_string()
+        tag = Tag.objects.create(name=name)
+        self.assertEqual(tag.name, name)
 
     def test_urls(self):
         response = self.client.get('/')
