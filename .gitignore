@@ -16,3 +16,4 @@ npm-debug.log
 media/
 static/css/compiled/
 db.sqlite3
+DATA/

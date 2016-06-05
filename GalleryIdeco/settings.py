@@ -25,7 +25,7 @@ SECRET_KEY = '@zx7l9p=%i)c32tka@jy9vcja6u15p%(cn1$fk1_s+r1l8&l3k'  # NOQA
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = THUMBNAIL_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -127,8 +127,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static")
+    os.path.join(BASE_DIR, 'static')
 ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'DATA')  # Статика локально
 
 MEDIA_URL = '/media/'
 
