@@ -11,4 +11,9 @@ test:
     - npm run prospector
     - npm run lint
     - npm run tests
-    - npm run deploy
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: gallery-ideco
