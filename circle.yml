@@ -16,8 +16,7 @@ deployment:
     heroku:
       appname: gallery-ideco
     commands:
-      - heroku run bash
-      - npm run build
-      - python manage.py makemigrations thumbnail
-      - python manage.py migrate
-      - python init_db.py
+      - heroku run npm run build
+      - heroku run python manage.py makemigrations thumbnail
+      - heroku run python manage.py migrate
+      - heroku run python init_db.py
