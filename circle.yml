@@ -14,6 +14,7 @@ deployment:
   staging:
     branch: master
     commands:
+      - git remote add heroku https://git.heroku.com/gallery-ideco.git
       - git push heroku master
       - heroku run --app gallery-ideco npm run build
       - heroku run --app gallery-ideco python manage.py makemigrations thumbnail
