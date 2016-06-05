@@ -23,7 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '@zx7l9p=%i)c32tka@jy9vcja6u15p%(cn1$fk1_s+r1l8&l3k'  # NOQA
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = THUMBNAIL_DEBUG = False
+DEBUG = True
+
+THUMBNAIL_DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
