@@ -13,10 +13,10 @@ test:
 deployment:
   production:
     branch: master
-    heroku:
-      appname: gallery-ideco
     commands:
       - heroku run npm run build
       - heroku run python manage.py makemigrations thumbnail
       - heroku run python manage.py migrate
       - heroku run python init_db.py
+    heroku:
+      appname: gallery-ideco
