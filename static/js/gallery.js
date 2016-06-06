@@ -41,6 +41,7 @@ var Gallery = {
 
         this._$needNum.on('change', function () {
             _this._$needNum = $('.js-hard-option-num');
+            _this._updateGallery();
         });
 
         this._checkBottom(this._getImages.bind(this));
