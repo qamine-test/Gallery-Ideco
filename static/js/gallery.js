@@ -2,7 +2,7 @@
 
 var debug = false;
 
-// TODO: документация осталась
+// TODO: документация и тесты
 var Gallery = {
     init: function (config) {
         this._collectData(config);
