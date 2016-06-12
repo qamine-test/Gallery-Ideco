@@ -8,7 +8,7 @@ from gallery.models import Image, Tag
 TEMPLATE_IMAGE = """
                  {% load static %}
                  {% load thumbnail %}
-                 <div data-src="/media/{{ image.url }}" class="gallery-image js-gallery-image">
+                 <div data-src="/media/{{ image.url }}" class="gallery__gallery-image js-gallery-image">
                      {% thumbnail image.url "250x150" crop="center" as thumb %}
                          <img src="{{ thumb.url }}" class="img-responsive img-thumbnail">
                      {% empty %}
@@ -16,7 +16,7 @@ TEMPLATE_IMAGE = """
                      {% endthumbnail %}
                      <div class="gallery-tags js-gallery-tags">
                          {% for tag in image.tags.all %}
-                             <button type="button" class="btn btn-primary gallery-tag js-gallery-tag">{{ tag }}</button>
+                             <button type="button" class="btn btn-primary gallery-tags__gallery-tag js-gallery-tag">{{ tag }}</button>
                          {% endfor %}
                      </div>
                  </div>

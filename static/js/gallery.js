@@ -15,7 +15,7 @@ var Gallery = {
         this._$gallery = $(this._config.id);
         this._$galleryImages = $('.js-gallery-images');
         this._$galleryImage = $('.js-gallery-image');
-        this._$loadGif = $('.load-gif');
+        this._$loadGif = $('.gallery__load-gif');
         this._offset = 8;
         this._end = false;
         this._$galleryImageClassName = this._$galleryImage.selector.replace('.', '');
@@ -231,7 +231,7 @@ $(function () {
         {
             id: '#js-gallery',
             mode: 'lg-slide-circular',
-            selector: '.gallery-image.js-gallery-image'
+            selector: '.gallery__gallery-image.js-gallery-image'
         }
     );
 });
