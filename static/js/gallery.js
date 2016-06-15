@@ -216,13 +216,18 @@ var Gallery = {
     _checkBottom: function (callback) {
         var _this = this;
 
-        $(window).scroll(function() {
-            if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
-                $(window).unbind('scroll');
-                _this._$loadGif.show();
-                setTimeout(callback, 500);
-            }
-        });
+        if ($(document).height() <= $(window).height()) {
+            this._$loadGif.show();
+            setTimeout(callback, 500);
+        } else {
+            $(window).scroll(function () {
+                if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+                    $(window).unbind('scroll');
+                    _this._$loadGif.show();
+                    setTimeout(callback, 500);
+                }
+            });
+        }
     }
 };
 
