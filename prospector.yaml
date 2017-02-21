@@ -1,14 +1,36 @@
 strictness: veryhigh
+doc-warnings: true
 test-warnings: true
-doc-warnings: false
+max-line-length: 60
+output-format: grouped
 
 pep8:
     full: true
     options:
-        max-line-length: 79
+        max-line-length: 60
 
 uses:
   - django
 
-ignore-paths:
-  - migrations
+frosted:
+  run: false 
+
+pyroma:
+  run: false 
+
+pylint:
+  disable:
+    - star-args
+
+pep8:
+  full: true
+
+pep257:
+  disable:
+    - D100
+    - D101
+    - D102
+    - D103
+    - D205
+    - D400
+    - D401
